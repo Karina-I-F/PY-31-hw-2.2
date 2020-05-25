@@ -62,7 +62,7 @@ class Mammal(Animal):
       print('Это животное не нужно доить.')
 
 
-class Sheep(Mammal, Animal):
+class Sheep(Mammal):
   """ Модель овцы """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -81,7 +81,7 @@ class Sheep(Mammal, Animal):
       print(self.wool)
 
 
-class Cow(Mammal, Animal):
+class Cow(Mammal):
   """ Модель коровы """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -90,7 +90,7 @@ class Cow(Mammal, Animal):
     self.voice = 'Му-у'
 
 
-class Goat(Mammal, Animal):
+class Goat(Mammal):
   """ Модель козы """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -119,7 +119,7 @@ class Bird(Animal):
       print('Собирать нечего.')
 
 
-class Chicken(Bird, Animal):
+class Chicken(Bird):
   """ Модель курицы """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -128,7 +128,7 @@ class Chicken(Bird, Animal):
     self.voice = 'Ко-ко-ко'
 
 
-class Duck(Bird, Animal):
+class Duck(Bird):
   """ Модель утки """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -137,7 +137,7 @@ class Duck(Bird, Animal):
     self.voice = 'Кря-кря'
 
 
-class Goose(Bird, Animal):
+class Goose(Bird):
   """ Модель гуся """
   def __init__(self, name: str, weight: float, gender: str):
     self.name = name
@@ -146,17 +146,17 @@ class Goose(Bird, Animal):
     self.voice = 'Га-га-га'
 
 
-animal_list = {}
+animal_dict = {}
 
-def get_total_weight(list_for_sum):
+def get_total_weight(dict_for_sum):
   """ Считает общий вес всех животных """
-  total_weight = sum(list_for_sum.values())
+  total_weight = sum(dict_for_sum.values())
   print(f'\nОбщий вес всех животных - {total_weight} кг.')
 
-def get_heaviest_animal(list_for_heaviest):
+def get_heaviest_animal(dict_for_heaviest):
   """ Выводит имя самого тяжёлого животного """
-  maximum = max(list_for_heaviest.values())
-  for key, value in list_for_heaviest.items():
+  maximum = max(dict_for_heaviest.values())
+  for key, value in dict_for_heaviest.items():
     if value == maximum:
       print(f'Самое тяжёлое животное {key} - {maximum} кг.')
 
@@ -164,63 +164,63 @@ goose1 = Goose('Серый', 5, 'м')
 goose1.voice_recognition()
 goose1.feed()
 goose1.collecting_eggs()
-animal_list[goose1.get_name()] = goose1.get_weight()
+animal_dict[goose1.get_name()] = goose1.get_weight()
 
 goose2 = Goose('Белый', 7.1, 'ж')
 goose2.voice_recognition()
 goose2.feed()
 goose2.collecting_eggs()
-animal_list[goose2.get_name()] = goose2.get_weight()
+animal_dict[goose2.get_name()] = goose2.get_weight()
 
 cow = Cow('Манька', 450, 'ж')
 cow.voice_recognition()
 cow.feed()
 cow.milk()
-animal_list[cow.get_name()] = cow.get_weight()
+animal_dict[cow.get_name()] = cow.get_weight()
 
 sheep1 = Sheep('Барашек', 90, 'м')
 sheep1.voice_recognition()
 sheep1.feed()
 sheep1.wool_picking()
 sheep1.milk()
-animal_list[sheep1.get_name()] = sheep1.get_weight()
+animal_dict[sheep1.get_name()] = sheep1.get_weight()
 
 sheep2 = Sheep('Кудрявый', 87, 'м')
 sheep2.voice_recognition()
 sheep2.feed()
 sheep2.wool_picking()
 sheep2.milk()
-animal_list[sheep2.get_name()] = sheep2.get_weight()
+animal_dict[sheep2.get_name()] = sheep2.get_weight()
 
 chicken1 = Chicken('Ко-Ко', 2, 'ж')
 chicken1.voice_recognition()
 chicken1.feed()
 chicken1.collecting_eggs()
-animal_list[chicken1.get_name()] = chicken1.get_weight()
+animal_dict[chicken1.get_name()] = chicken1.get_weight()
 
 chicken2 = Chicken('Кукареку', 2.5, 'м')
 chicken2.voice_recognition()
 chicken2.feed()
 chicken2.collecting_eggs()
-animal_list[chicken2.get_name()] = chicken2.get_weight()
+animal_dict[chicken2.get_name()] = chicken2.get_weight()
 
 goat1 = Goat('Рога', 45, 'м')
 goat1.voice_recognition()
 goat1.feed()
 goat1.milk()
-animal_list[goat1.get_name()] = goat1.get_weight()
+animal_dict[goat1.get_name()] = goat1.get_weight()
 
 goat2 = Goat('Копытка', 50, 'ж')
 goat2.voice_recognition()
 goat2.feed()
 goat2.milk()
-animal_list[goat2.get_name()] = goat2.get_weight()
+animal_dict[goat2.get_name()] = goat2.get_weight()
 
 duck = Duck('Кряква', 2, 'ж')
 duck.voice_recognition()
 duck.feed()
 duck.collecting_eggs()
-animal_list[duck.get_name()] = duck.get_weight()
+animal_dict[duck.get_name()] = duck.get_weight()
 
-get_total_weight(animal_list)
-get_heaviest_animal(animal_list)
+get_total_weight(animal_dict)
+get_heaviest_animal(animal_dict)
